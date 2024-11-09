@@ -1,0 +1,15 @@
+# Ignore node modules
+/node_modules
+
+# Ignore Angular build output
+/dist
+
+# Ignore IDE/editor settings (optional)
+.vscode/
+.idea/
+
+# Ignore environment files
+src/environments/environment*.ts
+
+# Ignore temporary and log files
+*.log
