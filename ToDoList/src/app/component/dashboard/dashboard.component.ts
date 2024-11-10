@@ -40,7 +40,6 @@ export class DashboardComponent {
         this.taskArr = res;
       },
       error: (err) => {
-        // alert("Unable to get the list of Tasks.");/
         this.snackBar.open('Unable to get the list of Tasks.', 'close',{
           duration: 3000,
         });
@@ -56,7 +55,6 @@ export class DashboardComponent {
         this.addTaskValue = '';
       },
       error: (err) => {
-        // alert(err);
         console.error(err);
         this.snackBar.open('An error occured', 'close',{
           duration: 3000,
@@ -72,7 +70,6 @@ export class DashboardComponent {
         this.ngOnInit();
       },
       error: err => {
-        // alert("Failed to edit the task");
         this.snackBar.open('Failed to edit the task!', 'close',{
           duration: 3000,
         });
@@ -86,7 +83,6 @@ export class DashboardComponent {
         this.ngOnInit();
       },
       error: err =>{
-        // alert("Failed to delete the task.");
         this.snackBar.open('Failed to delete the task.', 'close',{
           duration: 3000,
         });
