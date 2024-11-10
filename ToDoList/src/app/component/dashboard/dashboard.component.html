@@ -1,31 +1,63 @@
 <div class="container-fluid bg-light">
-    <div class="container bg-light">
-        <div class="row mt-4" style="height: 500px;">
-            <div class="col"></div>
-            <div class="col-md-6 bg-white shadow">
-                <div class="card bg-warning mt-4">
-                    <h4 class="text-white ps-3 pt-2 pb-2">To Do List</h4>
-                </div>
-                <div class="shadow">
-                    <div class="input-group p-4">
-                        <input type="text" class="form-control" placeholder="Add Task">
-                        <button class="btn btn-outline-success" type="button"><mat-icon class="mt-1">add</mat-icon></button>
-                      </div>
-                </div>
-                <h4 class="text-primary-emphasis mt-4">Tasks : </h4>
-                <div style="overflow-y:auto; height: 350px;">
-                    <div class="m-3">
-                        <div class="p-2 shadow">
-                            <div class="input-group row ps-3">
-                                <div class="card col-md-10 border-0 mt-2">schedule a meeting with development team</div>
-                                <button class="btn col-md-1"><mat-icon class="text-primary-emphasis me-2">edit</mat-icon></button>
-                                <button class="btn col-md-1"><mat-icon class="text-danger">delete</mat-icon></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col"></div>
+  <div class="container bg-light">
+    <div class="row mt-4" style="height: 500px">
+      <div class="col"></div>
+      <div class="col-md-6 bg-white shadow">
+        <div class="card bg-success bg-opacity-75 mt-4">
+          <h4 class="text-white mt-3 ps-3 pt-2 pb-2">To Do List</h4>
         </div>
+        <div class="shadow">
+          <div class="input-group p-4">
+            <input type="text" class="form-control" placeholder="Add Task" name="Task" [(ngModel)]="addTaskValue" />
+            <button class="btn btn-outline-success" type="button" (click)="addTask()">
+              <mat-icon class="mt-1">add</mat-icon>
+            </button>
+          </div>
+        </div>
+        <h4 class="text-primary-emphasis mt-4">Tasks :</h4>
+        <div style="overflow-y: auto; height: 350px">
+          <div class="m-3" *ngFor="let task of taskArr">
+            <div class="p-2 shadow">
+              <div class="input-group row ps-3">
+                <div class="card col-md-10 border-0 mt-2">
+                  {{ task.task_name }}
+                </div>
+                <button class="btn col-md-1" style="outline: none; box-shadow: none; border: none;">
+                  <mat-icon class="text-primary-emphasis me-2" data-bs-toggle="modal" type="button"
+                    data-bs-target="#exampleModal" (click)="callTask(task)">edit</mat-icon>
+                </button>
+                <button class="btn col-md-1" style="outline: none; box-shadow: none; border: none;">
+                  <mat-icon class="text-danger" (click)="deleteTask(task)">delete</mat-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!-- <div class="modal-header mt-2" style="height: 30px;">
+                <h1 class="modal-title text-primary-emphasis fs-5" id="exampleModalLabel">
+                  Edit the Task
+                </h1>
+              </div> -->
+              
+              <div class="modal-footer">
+                <input type="text" class="form-control" placeholder="Add Task" name="Task" [(ngModel)]="editTaskValue" />
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button class="btn btn-outline-success" type="button" data-bs-dismiss="modal" (click)="editTask()">
+                  Update
+                </button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <div class="col"></div>
     </div>
+  </div>
 </div>
