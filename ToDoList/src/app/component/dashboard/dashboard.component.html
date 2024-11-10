@@ -22,11 +22,11 @@
                 <div class="card col-md-10 border-0 mt-2">
                   {{ task.task_name }}
                 </div>
-                <button class="btn col-md-1" style="outline: none; box-shadow: none; border: none;">
+                <button class="btn col-md-1" style="outline: none; box-shadow: none; border: none">
                   <mat-icon class="text-primary-emphasis me-2" data-bs-toggle="modal" type="button"
                     data-bs-target="#exampleModal" (click)="callTask(task)">edit</mat-icon>
                 </button>
-                <button class="btn col-md-1" style="outline: none; box-shadow: none; border: none;">
+                <button class="btn col-md-1" style="outline: none; box-shadow: none; border: none">
                   <mat-icon class="text-danger" (click)="deleteTask(task)">delete</mat-icon>
                 </button>
               </div>
@@ -38,24 +38,19 @@
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
-              <!-- <div class="modal-header mt-2" style="height: 30px;">
-                <h1 class="modal-title text-primary-emphasis fs-5" id="exampleModalLabel">
-                  Edit the Task
-                </h1>
-              </div> -->
-              
               <div class="modal-footer">
-                <input type="text" class="form-control" placeholder="Add Task" name="Task" [(ngModel)]="editTaskValue" />
-                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                <input type="text" class="form-control" placeholder="Add Task" name="Task"
+                  [(ngModel)]="editTaskValue" />
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                  Cancel
+                </button>
                 <button class="btn btn-outline-success" type="button" data-bs-dismiss="modal" (click)="editTask()">
                   Update
                 </button>
-
               </div>
             </div>
           </div>
         </div>
-        
       </div>
       <div class="col"></div>
     </div>
